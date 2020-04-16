@@ -1,18 +1,28 @@
 package br.com.stholen.Dao;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.Stateless;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
+
+import br.com.stholen.Entity.AgendamentoEmail;
 
 @Stateless
 public class AgendamentoEmailDao {
-
-	public List<String> listarAgendamentoEmail(){
-		List<String> emails = new ArrayList<String>();
-		emails.add("email1@servidor.com");
-		emails.add("email2@servidor.com");
+	
+	@PersistenceContext
+	private EntityManager em;
+	
+	public List<AgendamentoEmail> listarAgendamentoEmail(){
 		
-		return emails;
+		String jpql = "Select a from AgendamentoEmail a";
+		TypedQuery<AgendamentoEmail> query =  em.createQuery(jpql,AgendamentoEmail.class);
+		return query.getResultList();
+	}
+	
+	public void salvarAgendamentoEmail(AgendamentoEmail agendamentoEmail) {
+		em.persist(agendamentoEmail);
 	}
 }

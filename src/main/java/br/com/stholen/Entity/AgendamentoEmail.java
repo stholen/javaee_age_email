@@ -1,5 +1,6 @@
 package br.com.stholen.Entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,8 +11,30 @@ public class AgendamentoEmail {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
+	@Column
 	private String email;
+	@Column
 	private Boolean enviado;
+	
+	@Column
+	private String assunto;
+	
+	@Column
+	private String mensagem;
+	
+	public String getAssunto() {
+		return assunto;
+	}
+	public void setAssunto(String assunto) {
+		this.assunto = assunto;
+	}
+	public String getMensagem() {
+		return mensagem;
+	}
+	public void setMensagem(String mensagem) {
+		this.mensagem = mensagem;
+	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;

@@ -1,10 +1,11 @@
 package br.com.stholen.Entity;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 public class AgendamentoEmail {
@@ -12,15 +13,16 @@ public class AgendamentoEmail {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column
+	@NotBlank
+	@Email
 	private String email;
-	@Column
+	
 	private Boolean enviado;
 	
-	@Column
+	@NotBlank
 	private String assunto;
 	
-	@Column
+	@NotBlank
 	private String mensagem;
 	
 	public String getAssunto() {

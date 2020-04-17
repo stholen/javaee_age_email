@@ -13,16 +13,16 @@ public class AgendamentoEmail {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@NotBlank
-	@Email
+	@NotBlank(message = "{agendamentoEmail.email.vazio}")
+	@Email(message = "{agendamentoEmail.email.invalido}")
 	private String email;
 	
 	private Boolean enviado;
 	
-	@NotBlank
+	@NotBlank(message = "{agendamentoEmail.assunto.vazio}")
 	private String assunto;
 	
-	@NotBlank
+	@NotBlank(message = "{agendamentoEmail.mensagem.vazio}")
 	private String mensagem;
 	
 	public String getAssunto() {

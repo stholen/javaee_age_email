@@ -16,6 +16,7 @@ import javax.ws.rs.core.Response;
 
 import br.com.stholen.Entity.AgendamentoEmail;
 import br.com.stholen.business.AgendamentoEmailBusiness;
+import br.com.stholen.exception.BusinessException;
 
 //acesso
 @Path("/agendamentoemail")
@@ -36,7 +37,7 @@ public class AgendamentoEmailResource {
 	
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
-	public Response salvarAgendamentoEmail(AgendamentoEmail agendamentoEmail) {
+	public Response salvarAgendamentoEmail(AgendamentoEmail agendamentoEmail) throws BusinessException {
 		
 		agendamentoEmailBusiness.salvarAgendamentoEmail(agendamentoEmail);
 		return Response.status(201).build();

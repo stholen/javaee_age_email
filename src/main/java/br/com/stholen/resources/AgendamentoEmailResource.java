@@ -1,8 +1,11 @@
 package br.com.stholen.resources;
 
 import java.util.List;
+import java.util.logging.Logger;
 
+import javax.ejb.EJBException;
 import javax.inject.Inject;
+import javax.validation.ConstraintViolationException;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -17,7 +20,8 @@ import br.com.stholen.business.AgendamentoEmailBusiness;
 //acesso
 @Path("/agendamentoemail")
 public class AgendamentoEmailResource {
-
+	
+	
 	// injeçao de dependencia para nao dar new
 	@Inject
 	private AgendamentoEmailBusiness agendamentoEmailBusiness;
@@ -33,6 +37,7 @@ public class AgendamentoEmailResource {
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	public Response salvarAgendamentoEmail(AgendamentoEmail agendamentoEmail) {
+		
 		agendamentoEmailBusiness.salvarAgendamentoEmail(agendamentoEmail);
 		return Response.status(201).build();
 	}

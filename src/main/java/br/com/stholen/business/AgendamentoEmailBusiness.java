@@ -8,8 +8,10 @@ import javax.validation.Valid;
 
 import br.com.stholen.Dao.AgendamentoEmailDao;
 import br.com.stholen.Entity.AgendamentoEmail;
+import br.com.stholen.interception.Logger;
 
 @Stateless
+@Logger
 public class AgendamentoEmailBusiness {
 	
 	@Inject

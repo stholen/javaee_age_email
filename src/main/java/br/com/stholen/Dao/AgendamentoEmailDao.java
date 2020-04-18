@@ -33,4 +33,10 @@ public class AgendamentoEmailDao {
 		
 		return query.getResultList();
 	}
+	
+	public List<AgendamentoEmail> listarAgendamentosEmailNaoEnviados(){
+		TypedQuery<AgendamentoEmail> query = em.createQuery("select a from AgendamentoEmail a where a.enviado = false",AgendamentoEmail.class); 
+				
+		return query.getResultList();
+	}
 }
